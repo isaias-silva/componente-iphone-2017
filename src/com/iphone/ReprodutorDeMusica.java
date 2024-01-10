@@ -23,6 +23,6 @@ public class ReprodutorDeMusica {
     }
     public void selecionarMusica(String name) {
         musicNow = name;
-        System.out.printf("musica selecionada %s ",name);
+        System.out.printf("musica selecionada %s \n",name);
     }
 }

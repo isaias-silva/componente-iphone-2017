@@ -1,3 +1,4 @@
+import com.interfaces.Phone;
 import com.iphone.Iphone;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -5,7 +6,7 @@ import com.iphone.Iphone;
 public class Main {
     public static void main(String[] args) {
 
-        Iphone iphone= new Iphone("iphone 2017");
+        Phone iphone= new Iphone("iphone 2017");
         iphone.start();
 
     }

@@ -33,6 +33,7 @@ public class Iphone implements Phone {
                     [2] -> navegador de internet
                     [3] -> telefonema
                     [0] -> desligar
+                                        
                     """);
 
 
@@ -68,13 +69,48 @@ public class Iphone implements Phone {
 
     @Override
     public void AbrirReprodutorDeMusica() {
-        System.out.println("""
-                               
-                [1] -> tocar música
-                [2] -> parar música
-                [0] -> sair
-                                
-                """);
+        boolean exit = false;
+        Scanner sc = new Scanner(System.in);
+
+        while (!exit) {
+
+            System.out.println("""
+                    [1] -> selecionar música               
+                    [2] -> tocar música
+                    [3] -> parar música
+                                        
+                    [0] -> sair
+                                    
+                    """);
+            Scanner prompt = new Scanner(System.in);
+            int option = prompt.nextInt();
+            switch (option) {
+                case 1: {
+                    System.out.println("digite o nome da música:");
+                    String musica = sc.next();
+                    reprodutorDeMusica.selecionarMusica(musica);
+
+                    break;
+                }
+                case 2: {
+                    reprodutorDeMusica.tocar();
+
+                    break;
+                }
+                case 3: {
+                    reprodutorDeMusica.parar();
+                    break;
+                }
+                case 0: {
+                    exit = true;
+                    break;
+                }
+                default: {
+                    System.out.println("use um comando válido");
+                }
+
+            }
+        }
     }
 
     @Override
