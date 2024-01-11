@@ -30,8 +30,8 @@ public class Iphone implements Phone {
             System.out.println("""
                                         
                     [1] -> reprodutor de música
-                    [2] -> navegador de internet
-                    [3] -> telefonema
+                    [2] -> telefone
+                    [3] -> navegador
                     [0] -> desligar
                                         
                     """);
@@ -54,6 +54,7 @@ public class Iphone implements Phone {
                 }
                 case 0: {
                     exit = true;
+                    start();
                     break;
                 }
                 default: {
@@ -70,12 +71,11 @@ public class Iphone implements Phone {
     @Override
     public void AbrirReprodutorDeMusica() {
         boolean exit = false;
-        Scanner sc = new Scanner(System.in);
 
         while (!exit) {
 
             System.out.println("""
-                    [1] -> selecionar música               
+                    [1] -> selecionar música         
                     [2] -> tocar música
                     [3] -> parar música
                                         
@@ -86,15 +86,11 @@ public class Iphone implements Phone {
             int option = prompt.nextInt();
             switch (option) {
                 case 1: {
-                    System.out.println("digite o nome da música:");
-                    String musica = sc.next();
-                    reprodutorDeMusica.selecionarMusica(musica);
-
+                    reprodutorDeMusica.selecionarMusica();
                     break;
                 }
                 case 2: {
                     reprodutorDeMusica.tocar();
-
                     break;
                 }
                 case 3: {
@@ -103,6 +99,7 @@ public class Iphone implements Phone {
                 }
                 case 0: {
                     exit = true;
+                    start();
                     break;
                 }
                 default: {
@@ -115,12 +112,49 @@ public class Iphone implements Phone {
 
     @Override
     public void AbrirAgendaTelefonica() {
-        System.out.println("""
-                               
-                [1] -> abrir correio de voz
-                [2] -> ligar
-                [3] -> atender ligações
-                [0] -> sair
-                """);
+
+        boolean exit = false;
+
+
+        while (!exit) {
+
+            System.out.println("""
+                                   
+                    [1] -> abrir correio de voz
+                    [2] -> ligar
+                    [3] -> atender ligações
+                    [0] -> sair
+                    """);
+
+            Scanner prompt = new Scanner(System.in);
+            int option = prompt.nextInt();
+            switch (option) {
+                case 1: {
+
+                    aparelhoDeTelefone.iniciarCorreioDeVoz();
+
+                    break;
+                }
+                case 2: {
+
+                    aparelhoDeTelefone.ligar();
+
+                    break;
+                }
+                case 3: {
+                    aparelhoDeTelefone.atender();
+
+                    break;
+                }
+                case 0: {
+                    exit = true;
+                    break;
+                }
+                default: {
+                    System.out.println("use um comando válido");
+                }
+
+            }
+        }
     }
 }

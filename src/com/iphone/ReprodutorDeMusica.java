@@ -1,11 +1,13 @@
 package com.iphone;
 
+import java.util.Scanner;
+
 public class ReprodutorDeMusica {
     private boolean inMusic;
     private String musicNow;
 
     public void tocar() {
-        if (musicNow.isEmpty()) {
+        if (musicNow==null) {
             System.out.println("musica não selecionada! selecione uma música");
             return;
         }
@@ -21,8 +23,10 @@ public class ReprodutorDeMusica {
             System.out.println("musica parada.");
         }
     }
-    public void selecionarMusica(String name) {
-        musicNow = name;
-        System.out.printf("musica selecionada %s \n",name);
+    public void selecionarMusica() {
+        System.out.println("digite o nome da música:");
+        Scanner scanner=new Scanner(System.in);
+        musicNow = scanner.nextLine();
+        System.out.printf("musica selecionada %s \n",musicNow);
     }
 }
